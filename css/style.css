@@ -1,5 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
 
+/* —————————————————————————————————————————————————————————————— */
+
 * {
     margin: 0;
     padding: 0;
@@ -8,7 +10,7 @@
 
 body {
     font-family: 'Inter', sans-serif;
-    background-color: #78d0f6;
+    background-color: #a9e2fa;
 }
 
 .max-width {
@@ -73,3 +75,34 @@ body {
 }
 
 /* —————————————————————————————————————————————————————————————— */
+
+.answers {
+
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 50px;
+
+    & .answer {
+        width: 300px;
+        padding: 15px;
+        margin: 10px;
+        border-radius: 10px;
+        border-color: transparent;
+        background-color: #03A9F4;
+        cursor: pointer;
+        transition: background-color 0.3s;
+        position: relative;
+
+        color: hsl(0, 0%, 100%);
+        font-weight: bold;
+        font-size: 1.3rem;
+
+        &:hover {
+            background-color: #52c8ff
+        }
+
+    }
+
+}
+
