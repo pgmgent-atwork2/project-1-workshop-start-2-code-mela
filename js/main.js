@@ -157,8 +157,16 @@ function wrongAnswer() {
     const height = window.innerHeight;
 
     btn.addEventListener("click", () => {
-        let randValueX = (Math.floor(((Math.random() * width) + 1) / 2) - 150);
-        let randValueY = (Math.floor(((Math.random() * height) + 1) / 2) - 150);
+        let randValueY = (Math.floor(Math.random() * height) - 58) / 1.5;
+        let randValueX = (Math.floor(Math.random() * width) - 300) / 1.5;
+        
+        // Make sure the button is not placed on the correct answer button
+        while (!((randValueY > 20 && randValueY < 620) || randValueX < 58)) {
+            randValueX = (Math.floor(Math.random() * width) - 300) / 1.5;
+            randValueY = (Math.floor(Math.random() * height) - 58) / 1.5;
+        }
+
+        // Set the new position of the button
         btn.style.top = randValueY + 'px';
         btn.style.right = randValueX + 'px';
     });
