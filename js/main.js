@@ -111,6 +111,8 @@ function resetButtons() {
     $wrongAnswer.style.right = '0px';
 }
 
+// ———————————————————————————————————————————————————————————————————
+
 function correctAnswer() {
     const rightAnswerButton = document.querySelector('.answer.correct');
 
@@ -138,6 +140,8 @@ function wrongAnswer() {
         btn.style.right = randValueX + 'px';
     });
 }
+
+// ———————————————————————————————————————————————————————————————————
 
 function init() {
     loadFirstQuestion();
