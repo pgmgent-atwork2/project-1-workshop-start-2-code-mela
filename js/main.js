@@ -123,6 +123,10 @@ function loadFinalScreen() {
     $restart.style.display = "flex";
 }
 
+function statusbar(activeQuestion, totalQuestions) {
+
+}
+
 // ———————————————————————————————————————————————————————————————————
 
 function correctAnswer() {
@@ -146,6 +150,10 @@ function correctAnswer() {
 
             // Load next question
             loadNextQuestion();
+
+            // Statusbar
+            statusbar(parseInt(questionIndex) + 1, questions.length);
+            
         }, 1000);
 
     });
