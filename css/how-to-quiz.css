@@ -41,7 +41,11 @@ iframe {
 }
 
 li {
-    margin: 1.5rem auto 0.5rem auto;
+    margin: 1.5rem auto 2.5rem auto;
+
+    & iframe {
+        margin: 1rem auto;
+    }
 }
 
 a {
