@@ -102,7 +102,7 @@ body {
             background-color: #52c8ff
         }
 
-        &.correct {
+        &.correctEntry {
             background-color: #4CAF50;
             animation: click 0.5s;
         }
