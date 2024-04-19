@@ -40,7 +40,7 @@ function correctAnswerConformation() {
     const sound = new Audio('./media/CorrectSoundEffect.mp3'); 
     sound.play();
 
-    // CSS animation
+    // Visual animation for the correct answer
     const rightAnswerButton = document.querySelector('.answer.correct');
     rightAnswerButton.classList.add('correctEntry');
 }
@@ -77,11 +77,14 @@ function loadFinalScreen() {
 function statusbar(activeQuestion, totalQuestions) {
     const statusBar = document.querySelector(".statusbar");
     let spheres = ""
+
+    // Create spheres for each question
     for (let index = 0; index < totalQuestions; index++) {
         spheres += `<div class="sphere ${index === activeQuestion ? 'active' : ""}"></div>`;
     }
+
+    // Add spheres to the statusbar
     statusBar.innerHTML = spheres
-    return statusBar;
 }
 
 // ———————————————————————————————————————————————————————————————————
