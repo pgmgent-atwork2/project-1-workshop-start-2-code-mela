@@ -65,6 +65,8 @@ function loadFirstQuestion() {
 
     const $wrongAnswer = document.querySelector(".answer.wrong");
     $wrongAnswer.innerHTML = questions[0].wrongAnswer;
+
+    statusbar(0, questions.length);
 }
 
 function loadNextQuestion() {
@@ -85,6 +87,7 @@ function loadNextQuestion() {
 
     // Update data-question_index attribute value
     $questionElement.setAttribute("data-question_index", parseInt(questionIndex) + 1);
+
 }
 
 function correctAnswerConformation() {
@@ -124,7 +127,8 @@ function loadFinalScreen() {
 }
 
 function statusbar(activeQuestion, totalQuestions) {
-
+    console.log(activeQuestion);
+    console.log(totalQuestions);
 }
 
 // ———————————————————————————————————————————————————————————————————
@@ -184,7 +188,7 @@ function wrongAnswer() {
 
 function init() {
     loadFirstQuestion();
-    correctAnswer()
+    correctAnswer();
     wrongAnswer();
 }
 
