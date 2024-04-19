@@ -88,18 +88,13 @@ function loadNextQuestion() {
 }
 
 function correctAnswerConformation() {
+    // Sound
+    const sound = new Audio('./media/CorrectSoundEffect.mp3'); 
+    sound.play();
+
+    // CSS animation
     const rightAnswerButton = document.querySelector('.answer.correct');
-
-    rightAnswerButton.addEventListener('click', () => {
-        if (rightAnswerButton.classList.contains('correctEntry')) { console.log(error); return; }
-
-        // Sound
-        const sound = new Audio('./media/CorrectSoundEffect.mp3'); 
-        sound.play();
-
-        // CSS animation
-        rightAnswerButton.classList.add('correctEntry');
-    });
+    rightAnswerButton.classList.add('correctEntry');
 }
 
 function resetButtons() {
@@ -111,17 +106,45 @@ function resetButtons() {
     $wrongAnswer.style.right = '0px';
 }
 
+function loadFinalScreen() {
+    const $questionElement = document.querySelector(".question");
+    const $correctAnswer = document.querySelector(".answer.correct");
+    const $wrongAnswer = document.querySelector(".answer.wrong");
+    const $restart = document.querySelector(".restart");
+
+    // Add question to the question element
+    $questionElement.innerHTML = "Je hebt alle vragen beantwoord!";
+
+    // Hide the answers
+    $correctAnswer.style.display = "none";
+    $wrongAnswer.style.display = "none";
+
+    // Show the restart button
+    $restart.style.display = "flex";
+}
+
 // ———————————————————————————————————————————————————————————————————
 
 function correctAnswer() {
     const rightAnswerButton = document.querySelector('.answer.correct');
 
     rightAnswerButton.addEventListener('click', () => {
+        // Sound to play when the correct answer is clicked
         correctAnswerConformation();
 
         // Wait for the sound to finish
         setTimeout(() => {
+            // Reset the buttons to their original state
             resetButtons();
+
+            // Check if it's the last question
+            const $questionElement = document.querySelector(".question");
+            const questionIndex = $questionElement.getAttribute("data-question_index");
+            if (parseInt(questionIndex) === questions.length - 1) {
+                loadFinalScreen();
+            }
+
+            // Load next question
             loadNextQuestion();
         }, 1000);
 

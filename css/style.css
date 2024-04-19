@@ -123,3 +123,13 @@ body {
     }
 }
 
+/* —————————————————————————————————————————————————————————————— */
+
+.restart {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+
+    color: rgb(0, 97, 162);
+    font-weight: bold;
+}
