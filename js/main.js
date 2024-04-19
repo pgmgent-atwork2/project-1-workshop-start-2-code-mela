@@ -69,11 +69,19 @@ function loadFinalScreen() {
 
     // Show the restart button
     $restart.style.display = "flex";
+
+    // Hide statusbar
+    document.querySelector('.statusbar').style.opacity = 0
 }
 
 function statusbar(activeQuestion, totalQuestions) {
-    console.log(activeQuestion);
-    console.log(totalQuestions);
+    const statusBar = document.querySelector(".statusbar");
+    let spheres = ""
+    for (let index = 0; index < totalQuestions; index++) {
+        spheres += `<div class="sphere ${index === activeQuestion ? 'active' : ""}"></div>`;
+    }
+    statusBar.innerHTML = spheres
+    return statusBar;
 }
 
 // ———————————————————————————————————————————————————————————————————
@@ -95,6 +103,7 @@ function correctAnswer() {
             const questionIndex = $questionElement.getAttribute("data-question_index");
             if (parseInt(questionIndex) === questions.length - 1) {
                 loadFinalScreen();
+                return;
             }
 
             // Load next question
