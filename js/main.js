@@ -33,6 +33,18 @@ function loadNextQuestion() {
     // Update data-question_index attribute value
     $questionElement.setAttribute("data-question_index", parseInt(questionIndex) + 1);
 
+
+    // Randomize placement of correct answer
+    if ($wrongAnswer.classList.contains('left')) {
+        $wrongAnswer.classList.remove('left');
+    }
+
+    const random = Math.floor(Math.random() * 5);
+
+    if (random === 1 || random === 3) {
+        $wrongAnswer.classList.add('left');
+    }
+
 }
 
 function correctAnswerConformation() {
